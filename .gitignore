@@ -1,4 +1,5 @@
 *.o
 */*.o
 ex00/bureaucrat
+ex01/maggots
 .vscode

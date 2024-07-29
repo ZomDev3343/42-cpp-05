@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 19:53:42 by tohma             #+#    #+#             */
-/*   Updated: 2024/07/29 13:04:13 by tohma            ###   ########.fr       */
+/*   Updated: 2024/07/29 18:53:16 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,18 @@ Bureaucrat::GradeTooLowException::GradeTooLowException(int grade)
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return "Error: Incorrect grade, too low !";	
+}
+
+void Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+	}
+	catch(const Form::GradeTooLowException& e)
+	{
+		std::cout << this->getName() << " couldn't sign " << form.getName() << " because "
+		<< e.what() << std::endl;
+	}
 }
