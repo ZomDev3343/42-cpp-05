@@ -1,0 +1,3 @@
+*.o
+*/*.o
+ex00/bureaucrat
