@@ -6,7 +6,7 @@
 /*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 20:10:42 by tohma             #+#    #+#             */
-/*   Updated: 2024/07/29 20:35:18 by tohma            ###   ########.fr       */
+/*   Updated: 2024/07/29 20:37:37 by tohma            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,31 @@ int main()
 	{
 		ok.signForm(rbf);
 		ok.signForm(ppf);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	try
+	{
+		good.signForm(ppf);
+		bad.executeForm(sbf);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	try
+	{
+		good.signForm(ppf);
+		good.executeForm(sbf);
+		good.executeForm(rbf);
+		good.executeForm(rbf);
+		good.executeForm(rbf);
+		good.executeForm(rbf);
+		good.executeForm(ppf);
 	}
 	catch(const std::exception& e)
 	{

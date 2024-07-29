@@ -14,6 +14,7 @@ $(NAME): $(OBJ)
 
 clean:
 	find . -name \*.o -type f -delete
+	find . -name \*_shrubbery -type f -delete
 
 fclean: clean
 	rm -rf $(NAME)
