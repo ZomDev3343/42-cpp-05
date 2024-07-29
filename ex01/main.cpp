@@ -17,6 +17,15 @@ int main()
 
 	try
 	{
+		good.signForm(f2);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << '\n';
+	}
+
+	try
+	{
 		Form f4("F4", 0, 50);
 	}
 	catch(const std::exception& e)
