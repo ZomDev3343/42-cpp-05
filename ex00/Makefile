@@ -6,7 +6,7 @@ FLAGS=-Wall -Werror -Wextra -std=c++98
 all:
 	make $(NAME)
 
-%.o: %.c
+%.o: %.cpp
 	c++ -c $(FLAGS) -g -o $@ $<
 
 $(NAME): $(OBJ)
