@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tohma <tohma@student.42.fr>                +#+  +:+       +#+        */
+/*   By: truello <truello@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 19:53:42 by tohma             #+#    #+#             */
-/*   Updated: 2024/07/29 13:04:13 by tohma            ###   ########.fr       */
+/*   Updated: 2024/08/15 15:35:48 by truello          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,18 @@ Bureaucrat &				Bureaucrat::operator=( Bureaucrat const & rhs )
 
 void Bureaucrat::incrementGrade()
 {
-	if (this->_grade - 1 < 1)
-		throw Bureaucrat::GradeTooHighException(this->_grade);
-	this->_grade--;
 	std::cout << "Incrementing " << this->_name << "'s grade" << std::endl;
+	this->_grade--;
+	if (this->_grade < 1)
+		throw Bureaucrat::GradeTooHighException(this->_grade);
 }
 
 void Bureaucrat::decrementGrade()
 {
-	if (this->_grade + 1 > 150)
-		throw Bureaucrat::GradeTooLowException(this->_grade);
-	this->_grade++;
 	std::cout << "Decrementing " << this->_name << "'s grade" << std::endl;
+	this->_grade++;
+	if (this->_grade > 150)
+		throw Bureaucrat::GradeTooLowException(this->_grade);
 }
 
 const std::string &Bureaucrat::getName() const
@@ -93,5 +93,5 @@ Bureaucrat::GradeTooLowException::GradeTooLowException(int grade)
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return "Error: Incorrect grade, too low !";	
+	return "Error: Incorrect grade, too low !";
 }
