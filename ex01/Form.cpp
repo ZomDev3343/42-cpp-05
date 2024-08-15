@@ -43,7 +43,7 @@ const std::string &Form::getName() const
 	return this->_name;
 }
 
-const bool Form::isSigned() const
+bool Form::isSigned() const
 {
 	return this->_isSigned;
 }
@@ -69,7 +69,7 @@ void Form::beSigned(Bureaucrat& b)
 
 std::ostream &operator<<( std::ostream & o, Form const & i )
 {
-	o << "Form Name : " << i.getName() << std::endl << "Is form signed? : " << i.isSigned()
+	o << "Form Name : " << i.getName() << std::endl << "Is form signed? : " << (i.isSigned() ? "Yes" : "No")
 		<< std::endl << "Minimum grade to sign : " << i.getMinSignGrade() << std::endl
 		<< "Minimum grade to execute it : " << i.getMinExecGrade() << std::endl;
 	return o;

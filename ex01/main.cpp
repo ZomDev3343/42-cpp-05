@@ -4,9 +4,13 @@ int main()
 {
 	Bureaucrat good("Michael", 5), bad("John", 148);
 	Form f1("F1", 25, 20), f2("F2", 149, 149), f3("F3", 50, 50);
+	std::cout << good << std::endl;
+	std::cout << bad << std::endl;
+	std::cout << f1 << std::endl;
 	try
 	{
 		good.signForm(f1);
+		std::cout << f1 << std::endl;
 		bad.signForm(f2);
 		bad.signForm(f3);
 	}
@@ -32,7 +36,7 @@ int main()
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
+
 	try
 	{
 		Form f4("F4", 50, 0);
@@ -59,6 +63,6 @@ int main()
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
+
 	return 0;
 }
